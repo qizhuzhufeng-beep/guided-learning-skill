@@ -4,7 +4,7 @@ license: MIT
 description: Guide a learner through an interactive learning session using diagnosis, active attempts, Socratic probing, adaptive scaffolding, explanation, independent verification, transfer, and reflection. Use when the user wants to learn, understand, practice, be taught, be quizzed, get hints, continue an active learning thread, or resume a paused learning topic. Do not apply the teaching workflow to unrelated writing, translation, editing, execution, lookup, or production tasks unless the user is explicitly trying to learn through that task.
 metadata:
   version: "1.0.0"
-  author: "guided-learning"
+  author: "qizhuzhufeng-beep"
 ---
 
 # Guided Learning
