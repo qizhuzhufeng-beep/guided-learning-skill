@@ -1,0 +1,122 @@
+[
+  {
+    "id": "continue-without-reinvoke",
+    "setup": "The learner invoked guided-learning for conditional probability. The tutor asked a diagnostic question.",
+    "user_turn": "I think P(A|B) is just P(B|A) because both talk about A and B.",
+    "must": [
+      "Continue the active learning workflow without asking the user to invoke the Skill again",
+      "Treat the statement as evidence of a conditional-direction misconception",
+      "Use a targeted discriminating probe, example, scaffold, or explanation"
+    ],
+    "must_not": [
+      "Ignore the active learning context",
+      "Mark conditional probability as verified"
+    ]
+  },
+  {
+    "id": "normal-task-suspends-learning",
+    "setup": "The conversation is actively learning Git rebase.",
+    "user_turn": "Rewrite this message to my manager: I will be late to the meeting.",
+    "must": [
+      "Handle the rewrite as a normal task",
+      "Suspend the learning behavior for this turn"
+    ],
+    "must_not": [
+      "Ask a Git question",
+      "Turn the rewrite into a lesson",
+      "Require an explicit exit command"
+    ]
+  },
+  {
+    "id": "resume-after-normal-task",
+    "setup": "Git rebase learning was suspended for an unrelated writing task. A checkpoint says the learner understands commit ancestry but has not verified rebase replay behavior.",
+    "user_turn": "Okay, back to rebase.",
+    "must": [
+      "Resume the Git learning topic",
+      "Use the checkpoint to continue near rebase replay behavior",
+      "Use a diagnostic if current mastery is uncertain"
+    ],
+    "must_not": [
+      "Restart Git from the beginning without reason",
+      "Ask the user to invoke guided-learning again"
+    ]
+  },
+  {
+    "id": "new-topic-isolated",
+    "setup": "The learner is studying self-attention with hint level 4 and an active context-dependence misconception.",
+    "user_turn": "Let's switch. Teach me the causes of the French Revolution.",
+    "must": [
+      "Checkpoint self-attention if useful",
+      "Create fresh topic-local state for the French Revolution",
+      "Diagnose the new learning goal"
+    ],
+    "must_not": [
+      "Carry hint level 4 into the new topic",
+      "Carry the attention misconception into history"
+    ]
+  },
+  {
+    "id": "supported-answer-needs-fresh-check",
+    "setup": "The learner solved a derivative problem only after receiving a partial worked solution.",
+    "user_turn": "Got it now.",
+    "must": [
+      "Treat the solved problem as supported performance",
+      "Use a fresh unassisted task if independent verification is appropriate"
+    ],
+    "must_not": [
+      "Mark mastery only because the learner says they got it",
+      "Reuse the exact same problem as the sole independent check"
+    ]
+  },
+  {
+    "id": "missing-knowledge-stops-interrogation",
+    "setup": "The learner has repeatedly failed to reason about atomicity and has never encountered the concept.",
+    "user_turn": "I honestly don't know what atomic means here.",
+    "must": [
+      "Explain the missing concept directly",
+      "Connect it to the current example",
+      "Follow with reconstruction or application"
+    ],
+    "must_not": [
+      "Ask several more variants of what do you think",
+      "Withhold the concept indefinitely"
+    ]
+  },
+  {
+    "id": "direct-answer-respected",
+    "setup": "An active learning session is working through a probability problem.",
+    "user_turn": "Just tell me the answer and explain it this time.",
+    "must": [
+      "Give the requested answer and explanation",
+      "Respect the user's requested interaction style"
+    ],
+    "must_not": [
+      "Refuse to answer because the Skill prefers discovery",
+      "Moralize about taking shortcuts"
+    ]
+  },
+  {
+    "id": "explicit-end",
+    "setup": "An active learning session exists.",
+    "user_turn": "Stop the learning session. I just want normal answers now.",
+    "must": [
+      "End learning behavior immediately",
+      "Treat later ordinary requests normally until new learning intent appears"
+    ],
+    "must_not": [
+      "Continue quizzes or Socratic questions"
+    ]
+  },
+  {
+    "id": "long-context-uncertain-state",
+    "setup": "After context compaction, the summary only says the learner studied self-attention; independent verification evidence is unavailable.",
+    "user_turn": "Continue.",
+    "must": [
+      "Avoid assuming mastery",
+      "Use a compact diagnostic or nearest safe continuation point"
+    ],
+    "must_not": [
+      "Invent a transfer-verified state"
+    ]
+  }
+]
