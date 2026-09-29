@@ -56,21 +56,31 @@ Start a new conversation and simply say what you want to learn, for example:
 
 No slash command is required. A correct activation starts with a short diagnostic task or question instead of a full lecture, and the Skill keeps running across later turns of the same topic.
 
-### Option B — install as an agent prompt
+### Option B — let your agent install it for you
 
-For agents or apps without an Agent Skills mechanism, paste this single message into a fresh conversation — the agent fetches and loads the Skill by itself:
+If you already use a coding agent (Claude Code, Codex CLI, and similar), skip the manual steps. Send it this message in a fresh conversation, approve the writes when it asks for permission, and it will install the Skill by itself and then walk you through your first use:
+
+```text
+为我在本机配置 guided-learning 学习技能：仓库是 https://github.com/qizhuzhufeng-beep/guided-learning-skill.git —— 克隆仓库，把其中的 guided-learning/ 目录安装到你的技能目录（Claude Code 是 ~/.claude/skills/），确认你能发现这个技能，然后手把手教我怎么用，从第一句话怎么说开始。
+```
+
+English version:
+
+```text
+Set up the guided-learning skill on my machine from this repository: https://github.com/qizhuzhufeng-beep/guided-learning-skill.git — clone it, install the guided-learning/ directory into your skills directory (for Claude Code: ~/.claude/skills/), confirm the skill is discoverable, then teach me step by step how to use it, starting with what to say first.
+```
+
+The agent clones the repository, copies `guided-learning/` into the skills directory, verifies the installation, and teaches you how to start. Note that skills are discovered when a session starts, so open a new conversation after installing.
+
+### Option C — no installation: load it from a prompt
+
+For chat agents without a skills mechanism or terminal access, paste this single message — the agent fetches and loads the Skill by itself:
 
 ```text
 Act as my learning tutor using the guided-learning skill: fetch https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/SKILL.md and follow it as your teaching behavior for this conversation (files linked under references/ live in the same directory on the same host); if you cannot fetch URLs, say so and I will paste the file; once loaded, ask me what I want to learn.
 ```
 
-中文版：
-
-```text
-从现在起按 guided-learning 技能担任我的学习导师：读取 https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/SKILL.md 并在本对话中严格遵循它作为你的教学行为（其中引用的 references/ 文件在同一目录 https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/ 下）；如果你无法访问网址，直接告诉我，我会把文件内容粘贴给你；加载完成后问我想学什么。
-```
-
-If the agent has no internet access, paste manually instead:
+If the agent has no internet access either, paste manually instead:
 
 1. Open `guided-learning/SKILL.md`.
 2. Paste its full content into the agent's system prompt, custom instructions, or the first message of a conversation.
