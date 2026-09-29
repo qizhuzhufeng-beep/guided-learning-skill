@@ -58,7 +58,19 @@ No slash command is required. A correct activation starts with a short diagnosti
 
 ### Option B — install as an agent prompt
 
-For agents or apps without an Agent Skills mechanism:
+For agents or apps without an Agent Skills mechanism, paste this single message into a fresh conversation — the agent fetches and loads the Skill by itself:
+
+```text
+Act as my learning tutor using the guided-learning skill: fetch https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/SKILL.md and follow it as your teaching behavior for this conversation (files linked under references/ live in the same directory on the same host); if you cannot fetch URLs, say so and I will paste the file; once loaded, ask me what I want to learn.
+```
+
+中文版：
+
+```text
+从现在起按 guided-learning 技能担任我的学习导师：读取 https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/SKILL.md 并在本对话中严格遵循它作为你的教学行为（其中引用的 references/ 文件在同一目录 https://raw.githubusercontent.com/qizhuzhufeng-beep/guided-learning-skill/main/guided-learning/ 下）；如果你无法访问网址，直接告诉我，我会把文件内容粘贴给你；加载完成后问我想学什么。
+```
+
+If the agent has no internet access, paste manually instead:
 
 1. Open `guided-learning/SKILL.md`.
 2. Paste its full content into the agent's system prompt, custom instructions, or the first message of a conversation.
