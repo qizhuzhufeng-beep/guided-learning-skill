@@ -24,6 +24,48 @@ guided-learning/
 
 The top-level `tests/` directory validates the package itself.
 
+## Quick start
+
+### Option A — install into an Agent Skills host
+
+For Claude Code or any host that supports the open Agent Skills format:
+
+```bash
+git clone https://github.com/qizhuzhufeng-beep/guided-learning-skill.git
+
+# Claude Code, personal (available in all projects)
+mkdir -p ~/.claude/skills
+cp -r guided-learning-skill/guided-learning ~/.claude/skills/
+
+# Claude Code, single project only
+mkdir -p /path/to/your-project/.claude/skills
+cp -r guided-learning-skill/guided-learning /path/to/your-project/.claude/skills/
+```
+
+Windows PowerShell equivalent:
+
+```powershell
+git clone https://github.com/qizhuzhufeng-beep/guided-learning-skill.git
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse guided-learning-skill\guided-learning "$env:USERPROFILE\.claude\skills\"
+```
+
+Start a new conversation and simply say what you want to learn, for example:
+
+> Teach me Bayes theorem — I want to actually understand it.
+
+No slash command is required. A correct activation starts with a short diagnostic task or question instead of a full lecture, and the Skill keeps running across later turns of the same topic.
+
+### Option B — install as an agent prompt
+
+For agents or apps without an Agent Skills mechanism:
+
+1. Open `guided-learning/SKILL.md`.
+2. Paste its full content into the agent's system prompt, custom instructions, or the first message of a conversation.
+3. Optionally paste one or more files from `guided-learning/references/` after it; the main file works on its own, and references add depth for specific situations.
+
+The main file is deliberately compact (under 500 lines) so it fits typical custom-instruction limits.
+
 ## Validate
 
 From this package root:
