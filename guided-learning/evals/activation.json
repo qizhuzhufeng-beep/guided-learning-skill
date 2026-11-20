@@ -1,0 +1,56 @@
+[
+  {
+    "id": "direct-learn",
+    "should_activate": true,
+    "prompt": "Teach me Bayes theorem so I actually understand it.",
+    "reason": "Explicit learning goal."
+  },
+  {
+    "id": "practice",
+    "should_activate": true,
+    "prompt": "Quiz me on recursion and adapt the questions to what I get wrong.",
+    "reason": "Explicit practice and adaptive learning."
+  },
+  {
+    "id": "hint",
+    "should_activate": true,
+    "prompt": "I'm learning eigenvectors and I'm stuck on this step. Give me a hint.",
+    "reason": "Explicit learning context and hint request."
+  },
+  {
+    "id": "broad-understanding",
+    "should_activate": true,
+    "prompt": "I keep mixing up TCP flow control and congestion control. Help me really understand the difference.",
+    "reason": "Understanding goal with a known confusion."
+  },
+  {
+    "id": "simple-lookup",
+    "should_activate": false,
+    "prompt": "What does HTTP 404 mean?",
+    "reason": "A simple factual lookup without a learning goal."
+  },
+  {
+    "id": "translation",
+    "should_activate": false,
+    "prompt": "Translate this paragraph into Japanese.",
+    "reason": "Production task."
+  },
+  {
+    "id": "rewrite",
+    "should_activate": false,
+    "prompt": "Rewrite this email to sound more professional.",
+    "reason": "Writing task."
+  },
+  {
+    "id": "research",
+    "should_activate": false,
+    "prompt": "Find the latest official Node.js release notes and summarize the breaking changes.",
+    "reason": "Research deliverable without a learning goal."
+  },
+  {
+    "id": "code-completion",
+    "should_activate": false,
+    "prompt": "Implement pagination in this API and run the tests.",
+    "reason": "Execution task."
+  }
+]
